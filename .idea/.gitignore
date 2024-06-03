@@ -1,8 +1,7 @@
 # Default ignored files
 /shelf/
 /workspace.xml
-*.xml
-.out
+/out/
 
 target/
 !.mvn/wrapper/maven-wrapper.jar
@@ -11,6 +10,9 @@ target/
 
 ### IntelliJ IDEA ###
 .idea/modules.xml
+.idea/vcs.xml
+.idea/misc.xml
+.idea/workspace.xml
 .idea/jarRepositories.xml
 .idea/compiler.xml
 .idea/libraries/
