@@ -33,6 +33,10 @@ public class Ticket {
         this.time = Instant.now().getEpochSecond();
     }
 
+    public Long getId() {
+        return id;
+    }
+
     @Override
     public String toString() {
         return "Ticket. id: "+ id + ", concertHall: " + concertHall +

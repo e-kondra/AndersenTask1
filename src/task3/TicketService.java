@@ -7,7 +7,7 @@ import java.util.Random;
 
 public class TicketService {
 
-    private final ArrayList ticketStorage;
+    private final ArrayList<Ticket> ticketStorage;
 
     public TicketService() {
         this.ticketStorage = this.fillInStorage();
@@ -25,9 +25,14 @@ public class TicketService {
         return tickets;
     }
 
+    private Ticket getTicketById(Long id){
+        return  this.ticketStorage.stream()
+                .filter(t -> t.getId().equals(id)).findFirst().orElse(null);
+    }
+
     public static void main(String[] args) {
         TicketService ticketService = new TicketService();
         ticketService.ticketStorage.stream().forEach(System.out::println);
-
+        System.out.println(ticketService.getTicketById(2L));
     }
 }
