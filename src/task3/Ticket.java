@@ -17,6 +17,7 @@ public class Ticket {
     public Ticket() {}
 
     public Ticket(Long id, String concertHall, int eventCode, boolean isPromo, Sector sector, float maxWeight, BigDecimal price) {
+        checkAttributes(concertHall, eventCode);
         this.id = id;
         this.concertHall = concertHall;
         this.eventCode = eventCode;
@@ -36,6 +37,11 @@ public class Ticket {
 
     public Long getId() {
         return id;
+    }
+
+    private void checkAttributes(String concertHall, int eventCode){
+        if(concertHall.length() > 10) throw new TicketValidateException("Concert Hall must contain no more than 10 letters");
+        if(eventCode/100 > 9 || eventCode/100 < 1) throw new TicketValidateException("Event code must contain exactly 3 digits");
     }
 
     @Override
