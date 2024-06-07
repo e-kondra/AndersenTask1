@@ -2,6 +2,7 @@ package task3;
 
 import java.math.BigDecimal;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Random;
 
 
@@ -29,6 +30,15 @@ public class TicketService {
         TicketService ticketService = new TicketService();
         ticketService.ticketStorage.stream().forEach(System.out::println);
 
+
+        ticketService.getTicketsBySector(Sector.C)
+                .forEach(System.out::println); //example of getting tickets by sector
+    }
+
+    private List<Ticket> getTicketsBySector(Sector sector) {
+        return ticketStorage.stream()
+                .filter(ticket -> ticket.getSector() == sector)
+                .toList();
     }
 
 }
